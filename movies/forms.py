@@ -1,9 +1,9 @@
 from django import forms
-from  .models import Reviews
+from .models import Reviews
 
 
 class ReviewForm(forms.ModelForm):
-    '''Фома отзывов'''
+    """Форма отзывов"""
     class Meta:
         model = Reviews
         fields = ("name", "email", "text")

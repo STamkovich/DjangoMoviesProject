@@ -7,7 +7,7 @@ class Category(models.Model):
     """Категории"""
     name = models.CharField("Категория", max_length=150)
     description = models.TextField("Описание")
-    url = models.SlugField(max_length=160, unique=True)  # unique=True  указывает что она уникальная
+    url = models.SlugField(max_length=160, unique=True)  # unique=True указывает что она уникальная
 
     def __str__(self):
         return f'{self.name}'
@@ -23,7 +23,7 @@ class Actor(models.Model):
     name = models.CharField("Имя", max_length=100)
     age = models.PositiveSmallIntegerField("Возраст", default=0)
     description = models.TextField("Описание")
-    image = models.ImageField("Изображение", upload_to="actors/")  # upload_to="actors/" указывает деректорию
+    image = models.ImageField("Изображение", upload_to="actors/")  # upload_to="actors/" указывает директорию
 
     # куда будет загружено изображение
 
@@ -120,6 +120,7 @@ class RatingStar(models.Model):
 
 
 class Rating(models.Model):
+    """Рейтинг"""
     ip = models.CharField("IP адрес", max_length=15)
     star = models.ForeignKey(RatingStar, on_delete=models.CASCADE, verbose_name="звезда")
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE, verbose_name="фильм")
